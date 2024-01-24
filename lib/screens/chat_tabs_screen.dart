@@ -42,7 +42,7 @@ class _ChatTabScreenState extends State<ChatTabScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(247, 224, 216, 216),
+        backgroundColor: const Color.fromARGB(247, 224, 216, 216),
         body: ListView.builder(
           itemCount: chatlist.length,
           itemBuilder: (context, index) {
@@ -58,9 +58,9 @@ class _ChatTabScreenState extends State<ChatTabScreen> {
               ),
               subtitle: Text(
                 chatlist[index]['message'],
-                style: TextStyle(color: Color.fromARGB(255, 6, 176, 43)),
+                style: const TextStyle(color: Color.fromARGB(255, 6, 176, 43)),
               ),
-              trailing: Text('9:10 pm'),
+              trailing: const Text('9:10 pm'),
             );
           },
         ));
