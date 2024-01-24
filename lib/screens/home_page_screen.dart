@@ -16,7 +16,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'NewChatApp',
+            'SandeshApp',
             style: TextStyle(color: Colors.white),
           ),
           actions: [

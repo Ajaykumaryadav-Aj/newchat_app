@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newchat_app/screens/chating_screen.dart';
 
 List<Map<String, dynamic>> chatlist = [
   {
@@ -46,21 +47,31 @@ class _ChatTabScreenState extends State<ChatTabScreen> {
         body: ListView.builder(
           itemCount: chatlist.length,
           itemBuilder: (context, index) {
-            return ListTile(
-              leading: CircleAvatar(
-                radius: 25,
-                backgroundImage: AssetImage(chatlist[index]['image']),
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ChatingScreen(index: index),
+                    ));
+              },
+              child: ListTile(
+                leading: CircleAvatar(
+                  radius: 25,
+                  backgroundImage: AssetImage(chatlist[index]['image']),
+                ),
+                title: Text(
+                  chatlist[index]['name'],
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                subtitle: Text(
+                  chatlist[index]['message'],
+                  style:
+                      const TextStyle(color: Color.fromARGB(255, 6, 176, 43)),
+                ),
+                trailing: const Text('9:10 pm'),
               ),
-              title: Text(
-                chatlist[index]['name'],
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              subtitle: Text(
-                chatlist[index]['message'],
-                style: const TextStyle(color: Color.fromARGB(255, 6, 176, 43)),
-              ),
-              trailing: const Text('9:10 pm'),
             );
           },
         ));
